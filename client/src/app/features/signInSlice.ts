@@ -134,7 +134,10 @@ const signinSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action: PayloadAction<AuthResponse>) => {
         state.loading = false;
         state.user = action.payload.user;
-        localStorage.setItem("token", action.payload.token);
+        const token = action.payload.token;
+        if (token) {
+          localStorage.setItem("token", token);
+        }
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;

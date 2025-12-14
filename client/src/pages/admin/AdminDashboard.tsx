@@ -22,7 +22,7 @@ export function AdminDashboard() {
   // ✅ Select real data from Redux
   const users = useSelector((state: RootState) => state.admin.users);
   const resumes = useSelector((state: RootState) => state.admin.resumes);
-  const loading = useSelector((state: RootState) => state.admin.loading);
+  const loading = useSelector((state: RootState) => state.admin.loadingUsers);
   const error = useSelector((state: RootState) => state.admin.error);
 
   // Fetch data on mount
@@ -121,7 +121,7 @@ export function AdminDashboard() {
                 {users && users.length > 0 ? (
                   users.map((user) => (
                     <div
-                      key={user._id}
+                      key={user.id}
                       className="flex items-center justify-between border-b border-border pb-4 last:border-0 last:pb-0"
                     >
                       <div className="flex items-center gap-3">
@@ -131,13 +131,13 @@ export function AdminDashboard() {
                           ) : (
                             <AvatarFallback>
                               {user.firstName[0]}
-                              {user.lastName[0]}
+                              {user.lastName?.[0] || ''}
                             </AvatarFallback>
                           )}
                         </Avatar>
                         <div>
                           <p className="text-sm font-medium">
-                            {user.firstName} {user.lastName}
+                            {user.firstName} {user.lastName || ''}
                           </p>
                           <p className="text-xs text-muted-foreground">
                             {user.email}

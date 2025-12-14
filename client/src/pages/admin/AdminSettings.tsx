@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Moon, Sun, User, Shield, Bell } from "lucide-react";
+import { User, Shield } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -9,11 +9,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { useTheme } from "@/components/contexts/admin/AdminThemeContext";
 import { Badge } from "@/components/ui/badge";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "@/app/store";
@@ -58,13 +56,13 @@ export function AdminSettings() {
   }, [admin]);
 
   const handleAdminUpdate = async () => {
-    if (!admin?._id) return;
+    if (!admin?.id) return;
 
     setLoading(true);
     try {
       await dispatch(
         updateAdmin({
-          id: admin._id,
+          id: admin.id,
           updates: { firstName, lastName, email },
         })
       ).unwrap();

@@ -45,7 +45,7 @@ export function Reports() {
   const [openDialog, setOpenDialog] = useState<string | null>(null);
 
   const dispatch = useDispatch<AppDispatch>();
-  const { reports, reportsLoading, error } = useSelector(
+  const { reports, loadingReports, error } = useSelector(
     (state: RootState) => state.admin
   );
 
@@ -130,7 +130,7 @@ export function Reports() {
           </CardHeader>
 
           <CardContent>
-            {reportsLoading ? (
+            {loadingReports ? (
               <p className="text-center text-muted-foreground">
                 Loading reports...
               </p>

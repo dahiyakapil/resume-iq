@@ -1,10 +1,18 @@
 export interface User {
   id: string;
+  _id?: string;
   firstName: string;
   lastName?: string;
   email: string;
   avatar: string;
   role: "admin" | "user";
+}
+
+export interface AuthResponse {
+  success: boolean;
+  message: string;
+  user: User;
+  token?: string;
 }
 
 export interface ResumeTemplateData {

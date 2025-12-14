@@ -53,7 +53,7 @@ export function Users() {
   const dispatch = useDispatch<AppDispatch>();
   const [open, setOpen] = useState(false); // control dialog
 
-  const { users, loading, error } = useSelector(
+  const { users, loadingUsers, error } = useSelector(
     (state: RootState) => state.admin
   );
 
@@ -145,7 +145,7 @@ export function Users() {
             </div>
           </CardHeader>
           <CardContent>
-            {loading ? (
+            {loadingUsers ? (
               <p className="text-center text-muted-foreground">
                 Loading users...
               </p>
@@ -246,7 +246,7 @@ export function Users() {
                                     </AlertDialogCancel>
                                     <AlertDialogAction
                                       onClick={() =>
-                                        handleSuspend(user._id, fullName)
+                                        handleSuspend(user.id, fullName)
                                       }
                                     >
                                       Yes, Delete
