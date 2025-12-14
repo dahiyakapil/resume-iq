@@ -102,7 +102,10 @@ function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchCurrentUser());
+    const token = localStorage.getItem("token");
+    if (token) {
+      dispatch(fetchCurrentUser());
+    }
   }, [dispatch]);
 
   return (

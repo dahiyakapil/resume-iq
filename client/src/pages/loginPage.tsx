@@ -234,6 +234,7 @@ export default function LoginPage() {
                   id="email"
                   type="email"
                   placeholder="Enter your email"
+                  autoComplete="email"
                   {...register("email")}
                   className="bg-white/10 border-white/20 text-white placeholder-gray-300"
                 />
@@ -253,6 +254,7 @@ export default function LoginPage() {
                   id="password"
                   type="password"
                   placeholder="Enter your password"
+                  autoComplete="current-password"
                   {...register("password")}
                   className="bg-white/10 border-white/20 text-white placeholder-gray-300"
                 />

@@ -145,6 +145,7 @@ export default function SignupPage() {
                 <Input
                   type="password"
                   placeholder="Password"
+                  autoComplete="new-password"
                   {...register("password")}
                   className="bg-white/10 text-white border-white/20 placeholder:text-gray-300"
                 />
@@ -160,6 +161,7 @@ export default function SignupPage() {
                 <Input
                   type="password"
                   placeholder="Confirm Password"
+                  autoComplete="new-password"
                   {...register("confirmPassword")}
                   className="bg-white/10 text-white border-white/20 placeholder:text-gray-300"
                 />
