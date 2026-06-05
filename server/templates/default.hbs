@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resume</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      font-size: 12px;
+      padding: 32px;
+      line-height: 1.5;
+      color: #000;
+    }
+    h1 { font-size: 24px; margin-bottom: 0; }
+    h2 { font-size: 16px; margin-top: 24px; }
+    h3 { font-size: 14px; margin-bottom: 4px; }
+    .section { margin-top: 24px; }
+    .bullet { margin-left: 16px; margin-bottom: 8px; }
+    ul { padding-left: 18px; }
+  </style>
+</head>
+<body>
+
+  <h1>{{fullName}}</h1>
+  <p>{{location}} | {{email}} | {{phone}}</p>
+
+  <div class="section">
+    <h2>Profile Summary</h2>
+    <p>{{summary}}</p>
+  </div>
+
+  <div class="section">
+    <h2>Technical Skills</h2>
+    <ul>
+      {{#each skills}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Projects</h2>
+    {{#each projects}}
+      <h3>{{title}}</h3>
+      <ul>
+        {{#each bullets}}
+          <li class="bullet">{{this}}</li>
+        {{/each}}
+      </ul>
+    {{/each}}
+  </div>
+
+  <div class="section">
+    <h2>Education</h2>
+    <p><strong>{{education.degree}}</strong>, {{education.institution}} ({{education.years}})</p>
+  </div>
+
+  <div class="section">
+    <h2>Applied Rewrites</h2>
+    <ul>
+      {{#each appliedRewrites}}
+        <li class="bullet">{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+
+</body>
+</html>
