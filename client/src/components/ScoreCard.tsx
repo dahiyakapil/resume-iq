@@ -1,11 +1,19 @@
 import React from "react";
 import { useAppSelector } from "@/hooks/redux";
+import type { AnalysisResponse } from "@/types/resumeAnalysis";
+
+const getAtsScore = (data: AnalysisResponse) => {
+  const analysis = data.analysis;
+  const raw = analysis?.ats_score;
+  const parsed = Number(raw);
+  return Number.isFinite(parsed) ? Math.max(0, Math.min(100, Math.round(parsed))) : 0;
+};
 
 const ScoreCard: React.FC = () => {
   const data = useAppSelector((s) => s.resumeAnalysis.data);
   if (!data) return null;
 
-const score = data.analysis?.ats_score ?? 0;
+  const score = getAtsScore(data);
 
 
   return (
